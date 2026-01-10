@@ -1,0 +1,36 @@
+.side-tab {
+  width: 100%;
+  min-height: 300px;
+  background-color: #F5F5F5 ;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.side-tab-text {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.side-tab-content {
+  width: 100%;
+  display: flex; 
+  align-items: center;
+}
+
+.side-tab-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.side-tab image img {
+  max-width: 100%;
+  height: auto;
+}
