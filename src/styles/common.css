@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 300px;
+  margin: 0 auto;
+  padding: 10% 24px;
+  background-color: rgba(205, 193, 193, 0.832);
+}
+.icon {
+    max-width: 200px;
+    /* height: auto;
+    display: block; */
+    margin: 0 auto;
+
+}
+
+.icon img {
+    width: 100%;
+    height: auto;
+}
+.text {
+    align-content: left;
+    justify-content: left;
+}
+.text-block {
+    white-space: pre-wrap;
+}
