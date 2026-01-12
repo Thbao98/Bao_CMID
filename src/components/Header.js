@@ -18,7 +18,8 @@ const items_CoDong = [
     key: '2',
   },
   {
-    label: <span className="nav-link-font">Thị trường chứng khoán</span>,
+    label: <a href="https://cafef.vn/thi-truong-chung-khoan.chn"
+    className="nav-link-font">Thị trường chứng khoán</a>,
     key: '3',
   },
 ];
