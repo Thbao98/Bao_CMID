@@ -5,7 +5,7 @@ import SideTab from './components/Sidetab';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 import Slider from './components/Slider';
-import Products from './pages/Products';
+import Products from './pages/products/Products';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import './App.css';
@@ -38,7 +38,7 @@ function App() {
           </Route>
 
           <Route 
-            path='/he-thong-kinh-doanh' 
+            path='/san-pham' 
             element={<Products/>}/>
 
           <Route

@@ -1,12 +1,82 @@
 import React from 'react';
 import './Header.css';
 import {Link} from 'react-router-dom';
-import {Row, Col, Typography, Button} from "antd";
+import { Typography, Button} from "antd";
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, message, Space } from 'antd';
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
+const options = [
+  {
+    value: 'sản phẩm',
+    label: 'Sản phẩm',
+    children: [
+      {
+        value: 'xi măng',
+        label: 'Xi măng',
+        children: [
+          {
+            value: 'thăng long',
+            label: 'Thăng Long',
+          },
+          {
+            value: 'hà tiên',
+            label: 'Hà Tiên',
+          },
+          {
+            value: 'insee-lavila',
+            label: 'Insee-Lavila',
+          },
+          {
+            value: 'nghi sơn',
+            label: 'Nghi Sơn',
+          },
+          {
+            value: 'fico',
+            label: 'Fico-YTL',
+          },
+          {
+            value: 'hạ long',
+            label: 'Hạ Long',
+          },
+          {
+            value: 'long sơn',
+            label: 'Long Sơn',
+          },
+          {
+            value: 'cẩm phả',
+            label: 'Cẩm Phả',
+          },
+          {
+            value: 'taceco',
+            label: 'Taceco',
+          },
+        ],
+      },
+      {
+        value: 'khác',
+        label: 'Khác',
+      }
+    ],
+  },
+  // {
+  //   value: 'jiangsu',
+  //   label: 'Jiangsu',
+  //   children: [
+  //     {
+  //       value: 'nanjing',
+  //       label: 'Nanjing',
+  //       children: [
+  //         {
+  //           value: 'zhonghuamen',
+  //           label: 'Zhong Hua Men',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+];
 const items_CoDong = [
   {
     label: <a href="https://www.cmid.com.vn/quan-he-co-dong.aspx" 
@@ -24,18 +94,31 @@ const items_CoDong = [
   },
 ];
 
+const cascaderToMenuItems = (options) =>
+  options.map(opt => ({
+    label: <span className="nav-link-font">{opt.label}</span>,
+    key: opt.value,
+    children: opt.children ? cascaderToMenuItems(opt.children) : undefined,
+  }));
+
+
 const items_KinhDoanh = [
   {
-    label: <span className="nav-link-font">Sản phẩm</span>,
-    key: '1',
+    label: <Link to="/san-pham" className="nav-link-font">Sản phẩm</Link>,
+    key: 'san-pham',
+    children: cascaderToMenuItems(options[0].children),
   },
   {
-    label: <span className="nav-link-font">Đối tác</span>,
-    key: '2',
+    label: <Link to="doi-tac" className="nav-link-font">Đối tác</Link>,
+    key: 'doi-tac',
   },
-]
+];
+
 const {Title} = Typography;
+
+
 const Header = () =>{
+  
 
   return (
     <>
@@ -64,7 +147,7 @@ const Header = () =>{
           </Button>
         </Dropdown>
 
-        <Dropdown menu={{ items: items_KinhDoanh }}>
+        <Dropdown menu={{ items: items_KinhDoanh }}  trigger={['hover']}>
           <Button type="link" onClick={e => e.preventDefault()}>
 
               <Space>
@@ -74,6 +157,8 @@ const Header = () =>{
 
           </Button>
         </Dropdown>
+
+        
 
         <Button type="link">
           <Link to='/lien-he'>Liên hệ</Link>
