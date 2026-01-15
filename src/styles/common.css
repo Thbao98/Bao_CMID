@@ -47,4 +47,6 @@
 }
 .text-block {
     white-space: pre-wrap;
+    align-content:left;
+    justify-content: left;
 }

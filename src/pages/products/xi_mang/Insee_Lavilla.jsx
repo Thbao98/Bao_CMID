@@ -2,10 +2,10 @@ import HaLongImg from './Ximang_HaLongPCB30.png';
 import HaLongImg2 from './Ximang_HaLongPCB40.png';
 import {Card} from 'antd';
 const {Meta} = Card;
-const HaLong=() => {
+const Insee=() => {
     return (
         <>
-        <h1>Hạ Long</h1>
+        <h1>Insee</h1>
         <div className='product-grid'>
             {/* <div className='product-card'> */}
                 {/* <img src={HaLongImg} alt='HaLong30'/> */}
@@ -43,4 +43,4 @@ const HaLong=() => {
     )
 
 }
-export default HaLong;
+export default Insee;

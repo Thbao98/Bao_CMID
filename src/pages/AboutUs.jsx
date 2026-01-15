@@ -1,17 +1,24 @@
 import '../styles/common.css';
 function AboutUs() {
-    const content = `
-    Sơ đồ tổ chức
-1. Tổ chức bộ máy và nhân lực
-    Bộ máy quản lý của Công Ty được tổ chức theo chế độ trực tuyến.
+    
+    
+    return (
+       <div>
+            <h1>Giới thiệu</h1>
+           <div> 
+            <h2>Sơ đồ tổ chức</h2>
+<h3>1. Tổ chức bộ máy và nhân lực</h3>
+
+    <p>Bộ máy quản lý của Công Ty được tổ chức theo chế độ trực tuyến.</p>
+    <ul>
     HĐQT gồm 05 thành viên
-      Trong đó :
-        + Chủ tịch : 01
-        + Phó Chủ tịch TT : 01
+      <li>Trong đó :</li>
+        <li> + Chủ tịch : 01</li>
+        <li>+ Phó Chủ tịch TT : 01</li>
         + Ủy viên : 03
     - Được Đại Hội Đồng Cổ Đông thành lập bầu chọn và là cơ quan giám sát, đề ra các phương hướng, mục tiêu hoạt động của Công ty. 
     - HĐQT chịu trách nhiệmbổ nhiệm một Tổng Giám Đốc để điều hành Công ty. 
-
+    </ul>
     Ban Kiểm Soát gồm 03 thành viên
        Trong đó : 
           + Trưởng Ban : 01 
@@ -50,10 +57,11 @@ I. Các Phòng Chức Năng
                 · Bộ phận lao động tiền lương 
                 · Bộ phận về mạng lưới, kho tàng, tài sản 
 
-    4. Các đơn vị trực thuộc Công ty 
-        Là những đơn vị trực tiếp sản xuất kinh doanh, hoạch toán phụ thuộc, hoạt động theo từng chức năng nhiệm vụ được Tổng Giám Đốc Công ty giao. Mỗi đơn vị có một trưởng đơn vị (Giám Đốc Trung tâm - Chi nhánh) chịu trách nhiệm chung và có 01 hoặc 02 phó hỗ trợ giúp việc cho Giám Đốc. 
-        Hiện có 10 đơn vị trực tiếp kinh doanh. Trong đó : 
-                · Trung tâm kinh doanh VLXD số 1 
+    <h3>4. Các đơn vị trực thuộc Công ty </h3>
+    <p>    Là những đơn vị trực tiếp sản xuất kinh doanh, hoạch toán phụ thuộc, hoạt động theo từng chức năng nhiệm vụ được Tổng Giám Đốc Công ty giao. Mỗi đơn vị có một trưởng đơn vị (Giám Đốc Trung tâm - Chi nhánh) chịu trách nhiệm chung và có 01 hoặc 02 phó hỗ trợ giúp việc cho Giám Đốc. 
+        Hiện có 10 đơn vị trực tiếp kinh doanh. Trong đó :</p>
+        <ul>
+                <li>· Trung tâm kinh doanh VLXD số 1 </li>
                 · Trung tâm kinh doanh VLXD và TTNT số 2 
                 · Trung tâm kinh doanh VLXD số 4 
                 · Trung tâm kinh doanh VLXD số 5 
@@ -65,15 +73,14 @@ I. Các Phòng Chức Năng
                 · Chi nhánh tại tỉnh Long An 
                 · Chi nhánh tại tỉnh Bình Dương
                 · Chi nhánh tại tỉnh Tiền Giang
+        </ul> 
 
-        Là những đơn vị hạch toán phụ thuộc. Trong đó ngoài chức năng, nhiệm vụ là kinh doanh bán buôn, bán lẻ, phát triển mạng lưới, tìm kiếm thị trường mới. Kinh doanh đồng bộ các mặt hàng chủ yếu của Công ty hiên nay như : ximăng các loại, gạch đất nung, hàng TTNT. Trong đó hiện nay có 01 đơn vị có kinh doanh mặt hàng xăng dầu, chất đốt. 
+        <p>Là những đơn vị hạch toán phụ thuộc. Trong đó ngoài chức năng, nhiệm vụ là kinh doanh bán buôn, bán lẻ, phát triển mạng lưới, tìm kiếm thị trường mới. Kinh doanh đồng bộ các mặt hàng chủ yếu của Công ty hiên nay như : ximăng các loại, gạch đất nung, hàng TTNT. Trong đó hiện nay có 01 đơn vị có kinh doanh mặt hàng xăng dầu, chất đốt. 
         Năm 2004, do yêu cầu của thị trường, Công ty đã thành lập Chi nhánh Long An, hạch toán phụ thuộc, kinh doanh các mặt hàng ximăng, sắt thép cung ứng cho thị trường tại một số vùng như Đức Hòa, Đức Huệ …. Năm 2006, Công ty thành lập thêm Chi nhánh tại Tỉnh Bình Dương và năm 2007 thành lập thêm Chi nhánh Tiền Giang.
+        </p>
 
-II. Sơ đồ tổ chức :`;
-    return (
-       <div>
-            <h1>Giới thiệu</h1>
-            <div className='text-block'>{content}</div>
+<h2>II. Sơ đồ tổ chức :</h2>
+</div>
             <img src='Sơ_đồ.jpeg'></img>
        </div> 
     )

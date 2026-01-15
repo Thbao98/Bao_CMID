@@ -42,3 +42,8 @@
   color: inherit;
   text-decoration: none;
 }
+
+.lang-button {
+  font-size: 18px;
+  color: blue;
+}

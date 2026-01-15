@@ -2,10 +2,10 @@ import HaTienImg from './Hatien_DaDung.png';
 import HaTienImg2 from './Hatien_XayTo.png';
 import {Card} from 'antd';
 const {Meta} = Card;
-const HaLong=() => {
+const HaTien=() => {
     return (
         <>
-        <h1>Hạ Long</h1>
+        <h1>Hà Tiên</h1>
         <div className='product-grid'>
             {/* <div className='product-card'> */}
                 {/* <img src={HaLongImg} alt='HaLong30'/> */}
@@ -43,4 +43,4 @@ const HaLong=() => {
     )
 
 }
-export default HaLong;
+export default HaTien;

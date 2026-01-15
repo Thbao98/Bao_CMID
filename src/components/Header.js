@@ -1,13 +1,56 @@
-import React from 'react';
+
 import './Header.css';
+import PATHS from '../routes/paths'
+
 import {Link} from 'react-router-dom';
 import { Typography, Button} from "antd";
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, message, Space } from 'antd';
-const onClick = ({ key }) => {
-  message.info(`Click on item ${key}`);
-};
-const options = [
+import { Dropdown, Space } from 'antd';
+import { GlobalOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+
+
+
+
+
+
+
+
+const {Title} = Typography;
+
+
+const Header = () =>{
+
+  const navigate = useNavigate();
+
+  const items_CoDong = [
+  {
+    label: <a href="https://www.cmid.com.vn/quan-he-co-dong.aspx" 
+    className="nav-link-font">Quan hệ cổ đông</a>,
+    key: '1',
+  },
+  {
+    label: <span className="nav-link-font">Báo cáo định kỳ</span>,
+    key: '2',
+    onClick: () => navigate(PATHS.REPORT),
+  },
+  {
+    label: <a href="https://cafef.vn/thi-truong-chung-khoan.chn"
+    className="nav-link-font">Thị trường chứng khoán</a>,
+    key: '3',
+  },
+];
+
+const cascaderToMenuItems = (options) =>
+  options.map(opt => ({
+    label: <span className="nav-link-font">{opt.label}</span>,
+    key: opt.value,
+    children: opt.children ? cascaderToMenuItems(opt.children) : undefined,
+  }));
+
+  const options = [
   {
     value: 'sản phẩm',
     label: 'Sản phẩm',
@@ -23,6 +66,7 @@ const options = [
           {
             value: 'hà tiên',
             label: 'Hà Tiên',
+            onClick: () => navigate(PATHS.PRODUCTS+PATHS.HA_TIEN),
           },
           {
             value: 'insee-lavila',
@@ -39,6 +83,7 @@ const options = [
           {
             value: 'hạ long',
             label: 'Hạ Long',
+            onClick: () => navigate(PATHS.HA_LONG),
           },
           {
             value: 'long sơn',
@@ -60,79 +105,56 @@ const options = [
       }
     ],
   },
-  // {
-  //   value: 'jiangsu',
-  //   label: 'Jiangsu',
-  //   children: [
-  //     {
-  //       value: 'nanjing',
-  //       label: 'Nanjing',
-  //       children: [
-  //         {
-  //           value: 'zhonghuamen',
-  //           label: 'Zhong Hua Men',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
 ];
-const items_CoDong = [
-  {
-    label: <a href="https://www.cmid.com.vn/quan-he-co-dong.aspx" 
-    className="nav-link-font">Quan hệ cổ đông</a>,
-    key: '1',
-  },
-  {
-    label: <span className="nav-link-font">Báo cáo định kỳ</span>,
-    key: '2',
-  },
-  {
-    label: <a href="https://cafef.vn/thi-truong-chung-khoan.chn"
-    className="nav-link-font">Thị trường chứng khoán</a>,
-    key: '3',
-  },
-];
-
-const cascaderToMenuItems = (options) =>
-  options.map(opt => ({
-    label: <span className="nav-link-font">{opt.label}</span>,
-    key: opt.value,
-    children: opt.children ? cascaderToMenuItems(opt.children) : undefined,
-  }));
-
 
 const items_KinhDoanh = [
   {
-    label: <Link to="/san-pham" className="nav-link-font">Sản phẩm</Link>,
+    label: <Link to={PATHS.PRODUCTS} className="nav-link-font">Sản phẩm</Link>,
     key: 'san-pham',
     children: cascaderToMenuItems(options[0].children),
   },
   {
-    label: <Link to="doi-tac" className="nav-link-font">Đối tác</Link>,
+    label: <Link to={PATHS.BRANCH} className="nav-link-font">Chi nhánh</Link>,
+    key: 'chi-nhanh',
+  },
+  {
+    label: <Link to={PATHS.PARTNER} className="nav-link-font">Đối tác</Link>,
     key: 'doi-tac',
   },
 ];
 
-const {Title} = Typography;
+  const { i18n } = useTranslation();
 
-
-const Header = () =>{
-  
+  const languageMenu = {
+    items: [
+      {
+        key: 'vi',
+        label: <Link to={PATHS.HOME}> Tiếng Việt</Link>,
+        onClick: () => i18n.changeLanguage('vi'),
+      },
+      {
+        key: 'en',
+        label: <Link to={PATHS.HOME_EN}> English</Link>,
+        onClick: () => i18n.changeLanguage('en'),
+      },
+    ],
+  };
 
   return (
     <>
     <div className="header">
-      <img src = "logo.png" alt = 'logo'/>
+      <Link to={PATHS.HOME}>
+        <img src = "logo.png" alt = 'logo'/>
+      </Link>
       <Title style={{color: "#0B1C3D"}}>CÔNG TY CỔ PHẦN VẬT LIỆU XÂY DỰNG & TRANG TRÍ NỘI THẤT TP. HCM</Title>
       <h1>CMID</h1>
     </div>
       <div className="navbar">
         <Button type="link">
-          <Link to='/'>Trang chủ</Link>
+          <Link to={PATHS.HOME}>Trang chủ</Link>
         </Button>
         <Button type="link">
-          <Link to='/gioi-thieu'>Giới thiệu</Link>
+          <Link to={PATHS.ABOUT}>Giới thiệu</Link>
         </Button>
        
       
@@ -161,8 +183,16 @@ const Header = () =>{
         
 
         <Button type="link">
-          <Link to='/lien-he'>Liên hệ</Link>
+          <Link to={PATHS.CONTACT}>Liên hệ</Link>
         </Button>
+
+        <Dropdown menu={languageMenu} placement="bottomRight">
+          <Button
+            type="text"
+            icon={<GlobalOutlined style={{color:  "blue"}}/>}
+            className="lang-btn"
+          />
+        </Dropdown>
       </div>
     </>
   );

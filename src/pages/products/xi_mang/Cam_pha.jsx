@@ -5,7 +5,7 @@ const {Meta} = Card;
 const HaLong=() => {
     return (
         <>
-        <h1>Hạ Long</h1>
+        <h1>Cẩm Phả</h1>
         <div className='product-grid'>
             {/* <div className='product-card'> */}
                 {/* <img src={HaLongImg} alt='HaLong30'/> */}
