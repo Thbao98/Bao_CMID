@@ -21,7 +21,7 @@ function Carousel() {
   return (
     <div className="carousel">
       <button className="arrow left" onClick={prevSlide}>‹</button>
-      <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
+        <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
       <button className="arrow right" onClick={nextSlide}>›</button>
     </div>
   );

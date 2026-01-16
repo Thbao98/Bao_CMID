@@ -66,8 +66,7 @@ function App() {
                   <LongSon/>
                   <NghiSon/>
                   <Taceco/>
-                </>
-              }
+                </>}
               />
               <Route path='xi-mang/long-son' element={<LongSon/>}/>
               <Route path='xi-mang/nghi-son' element={<NghiSon/>}/>

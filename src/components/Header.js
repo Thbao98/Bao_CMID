@@ -43,12 +43,7 @@ const Header = () =>{
   },
 ];
 
-const cascaderToMenuItems = (options) =>
-  options.map(opt => ({
-    label: <span className="nav-link-font">{opt.label}</span>,
-    key: opt.value,
-    children: opt.children ? cascaderToMenuItems(opt.children) : undefined,
-  }));
+
 
   const options = [
   {
@@ -62,11 +57,12 @@ const cascaderToMenuItems = (options) =>
           {
             value: 'thăng long',
             label: 'Thăng Long',
+            path: PATHS.PRODUCTS + PATHS.THANG_LONG,
           },
           {
             value: 'hà tiên',
             label: 'Hà Tiên',
-            onClick: () => navigate(PATHS.PRODUCTS+PATHS.HA_TIEN),
+            path: PATHS.PRODUCTS + PATHS.HA_TIEN,
           },
           {
             value: 'insee-lavila',
@@ -107,6 +103,31 @@ const cascaderToMenuItems = (options) =>
   },
 ];
 
+const cascaderToMenuItems = (options) =>
+  options.map(opt => ({
+    label: <Link className="nav-link-font">{opt.label}</Link>,
+    key: opt.value,
+    children: opt.children ? cascaderToMenuItems(opt.children) : undefined,
+  }));
+  
+const renderOptionButtons = (options) =>
+  options.map((opt) => (
+    <div key={opt.label} style={{ marginBottom: 8 }}>
+      {opt.path && (
+        <Button type="link">
+          <Link to={opt.path} className="nav-link-font">
+            {opt.label}
+          </Link>
+        </Button>
+      )}
+
+      {opt.children && (
+        <div style={{ paddingLeft: 16 }}>
+          {renderOptionButtons(opt.children)}
+        </div>
+      )}
+    </div>
+  ));
 const items_KinhDoanh = [
   {
     label: <Link to={PATHS.PRODUCTS} className="nav-link-font">Sản phẩm</Link>,
@@ -122,6 +143,13 @@ const items_KinhDoanh = [
     key: 'doi-tac',
   },
 ];
+
+// const ximang = [
+//   {
+//     label: <Link to={PATHS.PRODUCTS + PATHS.HA_LONG}/>,
+//     key:'ha-long',
+//   }
+// ]
 
   const { i18n } = useTranslation();
 
@@ -193,6 +221,10 @@ const items_KinhDoanh = [
             className="lang-btn"
           />
         </Dropdown>
+      </div>
+
+      <div className="product-links">
+        {renderOptionButtons(options)}
       </div>
     </>
   );
